@@ -27,28 +27,28 @@
     <!--<script src="js/pace.min.js"></script>-->
   </head>
   <body ng-app="starter">
-    <ion-pane ng-controller="IdentityController">
-      <!-- 
-        bar-royal = warna ungu 
-        bar-light = warna putih
-        bar-stable = warna abu2
-        bar-positive = warna biru
-        bar-calm = warna cyan
-        bar-balanced = warna hijau
-        bar-energized = warna kuning
-        bar-assertive = warna merah
-        bar-dark = warna hitam
-      -->
-      <ion-nav-view>
-        <ion-content class="tengah">
-          <div class="splash">
-            <h3>{{ welcome }}</h3>
-            <h3>{{ app }}</h3>
-            <a href="#menu"><img src="img/logo_bps.png" /></a>
-            <h3>{{ team }}</h3>
-          </div>
-        </ion-content>
-      </ion-nav-view>
-    </ion-pane>
+    <ion-nav-view ng-controller="IdentityController">
+        <ion-pane>
+          <!-- 
+            bar-royal = warna ungu 
+            bar-light = warna putih
+            bar-stable = warna abu2
+            bar-positive = warna biru
+            bar-calm = warna cyan
+            bar-balanced = warna hijau
+            bar-energized = warna kuning
+            bar-assertive = warna merah
+            bar-dark = warna hitam
+          -->
+            <ion-content class="tengah">
+              <div class="splash">
+                <h3>{{ welcome }}</h3>
+                <h3>{{ app }}</h3>
+                <a href="#menu"><img src="img/logo_bps.png" /></a>
+                <h3>{{ team }}</h3>
+              </div>
+            </ion-content>
+        </ion-pane>
+    </ion-nav-view>
   </body>
 </html>
