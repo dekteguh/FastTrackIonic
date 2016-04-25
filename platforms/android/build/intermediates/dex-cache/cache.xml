@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/dekteguh/IonicProjects/FastTrackIonic/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a481d805d067cee79ee87a181b4d0034fd37421c">
+        <dex dex="/Users/dekteguh/IonicProjects/FastTrackIonic/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_37db07f0626054265c6950a9dfd079002dce670c.jar" />
+    </item>
+
+</items>

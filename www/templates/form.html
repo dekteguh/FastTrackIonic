@@ -1,0 +1,58 @@
+<ion-nav-view ng-controller="FormController">
+    <ion-pane>
+        <div class="bar bar-positive">
+            <a href="#prop" class="button icon ion-arrow-left-a"></a>
+            <h1 class="title">Aplikasi Sensus 2020</h1>
+        </div>
+        <div class="list">
+            <br /><br />
+            <div class="item item-divider">
+                {{ title }}
+            </div>
+            <form ng-submit="data">
+                <div class="list list-inset">
+                <label class="item item-input">
+                    <div class="input-label">
+                    Propinsi
+                    </div>
+                    <input type="text" class="gray" placeholder="Propinsi" ng-model="data.prop">
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                    Kabupaten
+                    </div>
+                    <input type="text" placeholder="Kabupaten" ng-model="data.kab">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                    Jenjang Pendidikan
+                    </div>
+                    <select ng-model="data.jenjang">
+                        <option selected>-Pilih Jenjang-</option>
+                        <option>SD/MI/Sederajat</option>
+                        <option>SMP/MTs/Sederajat</option>
+                        <option>SMA/MA/Sederajat</option>
+                        <option>Perguruan Tinggi</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                    Jumlah Laki-laki
+                    </div>
+                    <input type="text" placeholder="Jumlah Laki-laki" ng-model="data.laki">
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                    Jumlah Perempuan
+                    </div>
+                    <input type="text" placeholder="Jumlah Perempuan" ng-model="data.pr">
+                </label>
+                <br />
+                <button class="button button-balanced">
+                Simpan
+                </button>
+                </div>
+            </form>
+        </div>
+    </ion-pane>
+</ion-nav-view>

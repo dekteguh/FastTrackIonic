@@ -1,0 +1,17 @@
+<ion-nav-view ng-controller="PropinsiController">
+    <ion-pane>
+        <div class="bar bar-positive">
+            <a href="#menu" class="button icon ion-arrow-left-a"></a>
+            <h1 class="title">Aplikasi Sensus 2020</h1>
+        </div>
+        <div class="list">
+            <br /><br />
+            <div class="item item-divider">
+                {{ title }}
+            </div>
+            <div ng-repeat="prop in propinsi">
+                <a class="item item-icon-right" href="#kabkota/{{prop.id}}">{{ prop.nama }}<i class="icon ion-chevron-right"></i></a>
+            </div>
+        </div>
+    </ion-pane>
+</ion-nav-view>
