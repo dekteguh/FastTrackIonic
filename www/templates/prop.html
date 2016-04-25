@@ -3,6 +3,7 @@
         <div class="bar bar-positive">
             <a href="#menu" class="button icon ion-arrow-left-a"></a>
             <h1 class="title">Aplikasi Sensus 2020</h1>
+            <a href="#menu" class="button icon ion-compose" ng-click="modal.show()"></a>
         </div>
         <div class="list">
             <br /><br />
@@ -15,3 +16,29 @@
         </div>
     </ion-pane>
 </ion-nav-view>
+
+<script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Form Propinsi</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Tutup</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Nama Propinsi</span>
+              <input ng-model="propinsi.nama" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Latitude</span>
+              <input ng-model="propinsi.latitude" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Longitude</span>
+              <input ng-model="propinsi.longitude" type="text">
+            </label>
+            <button class="button button-full button-positive" ng-click="simpanPropinsi(propinsi)">Simpan</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
