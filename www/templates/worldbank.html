@@ -1,0 +1,18 @@
+<ion-nav-view ng-controller="WorldBankController">
+    <ion-pane>
+        <div class="bar bar-positive">
+            <a href="#welcome" class="button icon ion-arrow-left-a"></a>
+            <h1 class="title">Aplikasi Sensus 2020</h1>
+            <a href="#chart" class="button icon ion-stats-bars"></a>
+        </div>
+        <div class="list">
+            <br /><br />
+            <div class="item item-divider">
+                {{ title }} INDONESIA
+            </div>
+            <div ng-repeat="data in worldbanks">
+                <a class="item item-icon-right">Tahun {{ data.tahun }} , GNI: {{ data.gni}}<i class="icon ion-chevron-right"></i></a>
+            </div>
+        </div>
+    </ion-pane>
+</ion-nav-view>

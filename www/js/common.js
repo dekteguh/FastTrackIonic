@@ -7,9 +7,7 @@ angular.module('common.controller', [])
 })
 
 .controller('MenuController', function($scope, $ionicPopup, $timeout){//, $splashscreen){
-  
   $scope.title = "Menu Utama";
-  
   $scope.menus = [
     {id:"usia",nama:'SP2020 - Usia'},
     {id:"pekerjaan",nama:'SP2020 - Pekerjaan'},
@@ -17,5 +15,4 @@ angular.module('common.controller', [])
     {id:"pendapatan",nama:'SP2020 - Pendapatan'},
     {id:"usaha",nama:'SP2020 - Skala Usaha'},
   ]
-
 })

@@ -1,7 +1,9 @@
 angular.module('all.services', [])
 
 //untuk lokasi
-.factory('AreaServices', function(){
+.factory('AreaServices', function($http){
+
+    var props = [];
     propinsi = [
         {id:1,nama:'DKI Jakarta',lat:-6.180736,lon:106.828474},
         {id:2,nama:'Jawa Barat',lat:-6.901846,lon:107.618054},
@@ -9,7 +11,7 @@ angular.module('all.services', [])
         {id:4,nama:'DI Yogyakarta',lat:-7.794751,lon:110.367318},
         {id:5,nama:'Jawa Timur',lat:-7.245552,lon:112.73914},
     ];
-  
+
     kabkota = [
         {id:1,nama:'Jakarta Timur',prop_id:1, lat:-6.213791,lon:106.944126},
         {id:2,nama:'Jakarta Barat',prop_id:1, lat:-6.176107, lon:106.737813},
@@ -32,11 +34,14 @@ angular.module('all.services', [])
         {id:19,nama:'Sumenep',prop_id:5, lat:-7.008535, lon:113.858428},
         {id:20,nama:'Banyuwangi',prop_id:5, lat:-8.214243, lon:114.371521},
     ];
-  
+
     return{
         //mendapatkan semua data propinsi
         listProp: function(){
-            return propinsi;
+          return $http.get("http://localhost:8000/propinsi").then(function(response){
+            props = response;
+            return props;
+          });
         },
         //mendapatkan data kako berdasarkan propinsi tertentu
         listKabById: function(prop_id){
@@ -49,7 +54,7 @@ angular.module('all.services', [])
                     arr['prop_id'] = kabkota[i].prop_id;
                     arr['lat'] = kabkota[i].lat;
                     arr['lon'] = kabkota[i].lon;
-                    list.push(arr);   
+                    list.push(arr);
                 }
             }
             return list;
@@ -62,7 +67,7 @@ angular.module('all.services', [])
                     prop.id = propinsi[i].id;
                     prop.nama = propinsi[i].nama;
                     prop.lat = propinsi[i].lat;
-                    prop.lon = propinsi[i].lon; 
+                    prop.lon = propinsi[i].lon;
                 }
             }
             return prop;
@@ -76,7 +81,7 @@ angular.module('all.services', [])
                     kako.nama = kabkota[i].nama;
                     kako.prop_id = kabkota[i].prop_id;
                     kako.lat = kabkota[i].lat;
-                    kako.lon = kabkota[i].lon; 
+                    kako.lon = kabkota[i].lon;
                 }
             }
             return kako;
@@ -86,5 +91,59 @@ angular.module('all.services', [])
 
 //untuk menyimpan data
 .factory('FormServices', function(){
-    
+
+})
+
+.factory('WorldbankServices', function($ionicLoading, $http, $q){
+    var self = this;
+    self.getData = function(){
+      var url = "http://api.worldbank.org/countries/id/indicators/NY.GNP.PCAP.CD";
+      var params = {format: 'json'};
+      var data_gni;
+      var q = $q.defer();
+
+      $http.get(url, params = {params})
+          .success(function(data){
+              data_gni = data[1];
+              q.resolve(data_gni);
+              //console.log("Sukses baca data API");
+              //console.log("data GNI per capita: ", data_gni);
+              $ionicLoading.hide();
+          })
+
+          .error(function(err){
+              //console.log("Tidak bisa baca API", err);
+              q.reject();
+              $ionicLoading.hide();
+          })
+          return q.promise;
+    }
+    return self;
+})
+
+.factory('ChartServices', function($ionicLoading, $http, $q){
+    var self = this;
+    self.getData = function(){
+      var url = "http://api.worldbank.org/countries/id/indicators/NY.GNP.PCAP.CD";
+      var params = {format: 'json'};
+      var data_gni;
+      var q = $q.defer();
+
+      $http.get(url, params = {params})
+          .success(function(data){
+              data_gni = data[1];
+              q.resolve(data_gni);
+              //console.log("Sukses baca data API");
+              //console.log("data GNI per capita: ", data_gni);
+              $ionicLoading.hide();
+          })
+
+          .error(function(err){
+              //console.log("Tidak bisa baca API", err);
+              q.reject();
+              $ionicLoading.hide();
+          })
+          return q.promise;
+    }
+    return self;
 })
